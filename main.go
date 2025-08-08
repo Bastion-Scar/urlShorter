@@ -7,6 +7,14 @@ import (
 	"time"
 )
 
+//TODO: Распределить все по папкам
+//TODO: Добавить Zap логгер и Middleware на его основе. Также запись в файл с lumberjack ротацией и настроить семплирование
+//TODO: Заменить карту на MySQL, в таблице столбцы о запросе, IP, путь и т.п
+//TODO: Добавить в .env все, что нужно
+//TODO: Написать тесты, чтоб покрытие было 80% и более
+//TODO: Написать CI файл для GitHub Actions
+//TODO: ДОПОЛНИТЕЛЬНО написать Dockerfile и Docker-compose
+
 type Storage interface {
 	Save(code string, url string)
 	Load(code string) (string, bool)
