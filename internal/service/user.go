@@ -25,6 +25,7 @@ func (s *UserService) Save(c *gin.Context) {
 		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
 			"error": "binding failed",
 		})
+
 		return
 	}
 
@@ -42,6 +43,10 @@ func (s *UserService) Save(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"shortURL": shortenURL,
 	})
+
+	c.Set("code", shortenURL)
+	c.Set("url", req.URL)
+
 }
 
 func (s *UserService) Load(c *gin.Context) {

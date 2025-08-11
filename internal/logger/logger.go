@@ -13,7 +13,7 @@ func Logger() *zap.Logger {
 		LevelKey:       "level",
 		CallerKey:      "caller",
 		MessageKey:     "message",
-		EncodeLevel:    zapcore.LowercaseLevelEncoder,
+		EncodeLevel:    zapcore.CapitalColorLevelEncoder,
 		EncodeCaller:   zapcore.ShortCallerEncoder,
 		EncodeDuration: zapcore.SecondsDurationEncoder,
 	}

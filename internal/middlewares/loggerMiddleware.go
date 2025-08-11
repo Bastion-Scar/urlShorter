@@ -1,6 +1,8 @@
 package middlewares
 
 import (
+	"awesomeProject13/internal/storage"
+	"awesomeProject13/models"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	"time"
@@ -27,5 +29,27 @@ func LoggerMiddleware(logger *zap.Logger) gin.HandlerFunc {
 		if logger == nil {
 			panic("logger not set")
 		}
+
+		codeRaw, codeExists := c.Get("code")
+		urlRaw, urlExists := c.Get("url")
+
+		var code, url string
+		if codeStr, ok := codeRaw.(string); codeExists && ok {
+			code = codeStr
+		}
+		if urlStr, ok := urlRaw.(string); urlExists && ok {
+			url = urlStr
+		}
+
+		entry := storage.Logs{
+			Duration: after,
+			Status:   status,
+			IP:       clientIP,
+			Code:     code,
+			URL:      url,
+			Path:     path,
+		}
+		models.LogChan <- entry
 	}
+
 }
