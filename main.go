@@ -33,7 +33,7 @@ func main() {
 	})
 
 	go models.SendLogs(db)
-	
+
 	if err := r.Run(":8080"); err != nil {
 		zapLogger.Fatal("Ошибка при запуске сервера")
 	}
