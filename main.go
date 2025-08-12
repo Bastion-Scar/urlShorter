@@ -9,7 +9,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//TODO: Написать CI файл для GitHub Actions
 //TODO: ДОПОЛНИТЕЛЬНО написать Dockerfile и Docker-compose
 
 func main() {
