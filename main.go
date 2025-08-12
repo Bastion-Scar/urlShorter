@@ -9,7 +9,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//TODO: Написать тесты, чтоб покрытие было 80% и более
 //TODO: Написать CI файл для GitHub Actions
 //TODO: ДОПОЛНИТЕЛЬНО написать Dockerfile и Docker-compose
 
